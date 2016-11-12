@@ -1,0 +1,17 @@
+<p>
+    {% for message in app.session.flashbag.get('error') %}
+        <p>Message erreur (rouge) : {{ message }}</p>
+    {% endfor %}
+
+    {% for message in app.session.flashbag.get('warning') %}
+        <p>Message warning (orange) : {{ message }}</p>
+    {% endfor %}
+
+    {% for message in app.session.flashbag.get('valid') %}
+        <p>Message valide (vert) : {{ message }}</p>
+    {% endfor %}
+
+    {% for message in app.session.flashbag.get('info') %}
+        <p>Message info (bleu) : {{ message }}</p>
+    {% endfor %}
+</p>

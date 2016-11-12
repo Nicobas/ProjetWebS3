@@ -1,0 +1,9 @@
+Profile
+
+Liste de mes voyages
+	lien pour voir le voyage
+	lien pour se désinscrire
+	qq infos ?
+
+Liste des voyages ou je peux m'inscrire
+	lien pour s'inscrire

@@ -1,0 +1,154 @@
+<?php
+
+namespace TripBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TripParticipant
+ *
+ * @ORM\Table(name="trip_participant")
+ * @ORM\Entity(repositoryClass="TripBundle\Repository\TripParticipantRepository")
+ */
+class TripParticipant
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statut", type="string", length=32)
+     */
+    private $statut;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaireAdmin", type="text", nullable=true)
+     */
+    private $commentaireAdmin;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TripBundle\Entity\Trip", cascade={"persist"}, inversedBy="participants")
+     */
+    private $trip;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", cascade={"persist"})
+     */
+    private $participant;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param string $statut
+     *
+     * @return TripParticipant
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return string
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set commentaireAdmin
+     *
+     * @param string $commentaireAdmin
+     *
+     * @return TripParticipant
+     */
+    public function setCommentaireAdmin($commentaireAdmin)
+    {
+        $this->commentaireAdmin = $commentaireAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaireAdmin
+     *
+     * @return string
+     */
+    public function getCommentaireAdmin()
+    {
+        return $this->commentaireAdmin;
+    }
+
+    /**
+     * Set trip
+     *
+     * @param \TripBundle\Entity\Trip $trip
+     *
+     * @return TripParticipant
+     */
+    public function setTrip(\TripBundle\Entity\Trip $trip = null)
+    {
+        $this->trip = $trip;
+
+        return $this;
+    }
+
+    /**
+     * Get trip
+     *
+     * @return \TripBundle\Entity\Trip
+     */
+    public function getTrip()
+    {
+        return $this->trip;
+    }
+
+    /**
+     * Set participant
+     *
+     * @param \UserBundle\Entity\User $participant
+     *
+     * @return TripParticipant
+     */
+    public function setParticipant(\UserBundle\Entity\User $participant = null)
+    {
+        $this->participant = $participant;
+
+        return $this;
+    }
+
+    /**
+     * Get participant
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getParticipant()
+    {
+        return $this->participant;
+    }
+}

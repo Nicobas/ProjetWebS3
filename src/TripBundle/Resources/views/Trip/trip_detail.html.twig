@@ -1,0 +1,17 @@
+{% extends "TripBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Voyage : {{ tripPart.trip.titre }}{% endblock %}
+
+{% block page %}
+
+    Titre : {{ tripPart.trip.titre }} <br />
+    Statut : {{ tripPart.trip.statut }} <br />
+    Date de début : {{ tripPart.trip.dateDebut|date("d M Y à H\\hi") }} <br />
+    Date de fin : {{ tripPart.trip.dateFin|date("d M Y à H\\hi") }} <br />
+    Lieux : {{ tripPart.trip.lieux }} <br />
+    Mon statut : {{ tripPart.statut }} <br /><br />
+
+    Description :<br/>
+    {{ tripPart.trip.description }}
+
+{% endblock %}

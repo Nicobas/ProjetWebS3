@@ -1,0 +1,5 @@
+Statut trip:
+    Configuration
+    Inscription
+    Inscription fermées
+    Terminé

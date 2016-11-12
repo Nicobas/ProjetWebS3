@@ -1,0 +1,79 @@
+{% extends "TripBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Mes voyages{% endblock %}
+
+{% block page %}
+
+    <div>
+        <h3>Mes voyages</h3>
+        {% if user_trips|length > 0 %}
+            <table>
+                <tr>
+                    <td><b>Titre</b></td>
+                    <td><b>Statut</b></td>
+                    <td><b>Date de début</b></td>
+                    <td><b>Date de fin</b></td>
+                    <td><b>Lieux</b></td>
+                    <td><b>Mon statut</b></td>
+                    <td><b>Détail</b></td>
+                    <td><b>Se désinscrire</b></td>
+                </tr>
+                {% for tp in user_trips %}
+                    <tr>
+                        <td>{{ tp.trip.titre }}</td>
+                        <td>{{ tp.trip.statut }}</td>
+                        <td>{{ tp.trip.dateDebut|date("d M Y à H\\hi") }}</td>
+                        <td>{{ tp.trip.dateFin|date("d M Y à H\\hi") }}</td>
+                        <td>{{ tp.trip.lieux }}</td>
+                        <td>{{ tp.statut }}</td>
+                        <td>
+                            <a href="{{ path('trip_detail', { 'id': tp.trip.id }) }}">
+                                Détail
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('trip_desinscription', { 'id': tp.trip.id }) }}">
+                                Se désinscrire
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Pas d'évenements trouvés.</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h3>Autres voyages</h3>
+        {% if allowed_trips|length > 0 %}
+            <table>
+                <tr>
+                    <td><b>Titre</b></td>
+                    <td><b>Statut</b></td>
+                    <td><b>Date de début</b></td>
+                    <td><b>Date de fin</b></td>
+                    <td><b>Lieux</b></td>
+                    <td><b>S'inscrire</b></td>
+                </tr>
+                {% for trip in allowed_trips %}
+                    <tr>
+                        <td>{{ trip.titre }}</td>
+                        <td>{{ trip.statut }}</td>
+                        <td>{{ trip.dateDebut|date("d M Y à H\\hi") }}</td>
+                        <td>{{ trip.dateFin|date("d M Y à H\\hi") }}</td>
+                        <td>{{ trip.lieux }}</td>
+                        <td>
+                            <a href="{{ path('trip_inscription', { 'id': trip.id }) }}">
+                                S'inscrire
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Pas d'évenements trouvés.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

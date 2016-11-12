@@ -1,0 +1,52 @@
+{% extends "TripBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Mes voyages{% endblock %}
+
+{% block page %}
+
+    <div>
+        <h3>Mes voyages</h3>
+        {% if trips|length > 0 %}
+            <table>
+                <tr>
+                    <td><b>Titre</b></td>
+                    <td><b>Statut</b></td>
+                    <td><b>Date de début</b></td>
+                    <td><b>Date de fin</b></td>
+                    <td><b>Lieux</b></td>
+                    <td><b>Edit</b></td>
+                    <td><b>Gerer les utilisateurs</b></td>
+                    <td><b>Gerer les restrictions</b></td>
+
+                </tr>
+                {% for trip in trips %}
+                    <tr>
+                        <td>{{ trip.titre }}</td>
+                        <td>{{ trip.statut }}</td>
+                        <td>{{ trip.dateDebut|date("d M Y à H\\hi") }}</td>
+                        <td>{{ trip.dateFin|date("d M Y à H\\hi") }}</td>
+                        <td>{{ trip.lieux }}</td>
+                        <td>
+                            <a href="{{ path('trip_admin_edit', { 'id': trip.id }) }}">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('trip_admin_users', { 'id': trip.id }) }}">
+                                Gérer les utilisateurs
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('trip_admin_restrictions', { 'id': trip.id }) }}">
+                                Gérer les restrictions
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Pas d'évenements trouvés.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

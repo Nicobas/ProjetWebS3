@@ -1,0 +1,43 @@
+trip_homepage:
+    path:   /
+    defaults:  { _controller:TripBundle:Trip:index }
+
+trip_detail:
+    path:   /{id}
+    defaults:  { _controller:TripBundle:Trip:detail }
+    requirements:
+        id:   \d+
+
+trip_inscription:
+    path:   /inscription/{id}
+    defaults:  { _controller:TripBundle:Trip:inscription }
+    requirements:
+        id:   \d+
+
+trip_desinscription:
+    path:   /desinscription/{id}
+    defaults:  { _controller:TripBundle:Trip:desinscription }
+    requirements:
+        id:   \d+
+
+trip_admin:
+    path:   /admin
+    defaults:  { _controller:TripBundle:Admin:index }
+
+trip_admin_edit:
+    path:   /admin/edit/{id}
+    defaults:  { _controller:TripBundle:Admin:edit }
+    requirements:
+        id:   \d+
+
+trip_admin_users:
+    path:   /admin/users/{id}
+    defaults:  { _controller:TripBundle:Admin:users }
+    requirements:
+        id:   \d+
+
+trip_admin_restrictions:
+    path:   /admin/restrictions/{id}
+    defaults:  { _controller:TripBundle:Admin:restrictions }
+    requirements:
+        id:   \d+

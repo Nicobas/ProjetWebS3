@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Projet Web S3{% endblock %}</title>
+</head>
+<body>
+{{ include("::header.html.twig") }}
+
+{{ include(":Tool:message_flash.html.twig") }}
+
+{% block body %}
+{% endblock %}
+
+{{ include("::footer.html.twig") }}
+</body>
+</html>

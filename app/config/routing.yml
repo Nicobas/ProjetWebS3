@@ -1,0 +1,19 @@
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+trip:
+    resource: "@TripBundle/Resources/config/routing.yml"
+    prefix:   /trips
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+super_admin:
+    resource: "@SuperAdminBundle/Resources/config/routing.yml"
+    prefix:   /superadmin
+
+core:
+    resource: "@CoreBundle/Resources/config/routing.yml"
+    prefix:   /

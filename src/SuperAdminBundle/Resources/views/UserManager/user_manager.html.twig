@@ -1,0 +1,48 @@
+{% extends "SuperAdminBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Gestionnaire d'utilisateurs{% endblock %}
+
+
+{% block page %}
+    {% if users|length > 0 %}
+        <table>
+            <tr>
+                <td><b>Prenom</b></td>
+                <td><b>Nom</b></td>
+                <td><b>Promo</b></td>
+                <td><b>Mail</b></td>
+
+                <td><b>Activation</b></td>
+                <td><b>Bloquer</b></td>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.promotion }}</td>
+                    <td>{{ user.email }}</td>
+
+                    <td>
+                        {% if user.enabled %}
+                            Activé
+                        {% else %}
+                            Non activé
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ path('superadmin_user_lock', { 'id': user.id }) }}">
+                            {% if user.locked %}
+                                Débloquer
+                            {% else %}
+                                Bloquer
+                            {% endif %}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Pas d'utilisateur trouvés.</p>
+    {% endif %}
+
+{% endblock %}

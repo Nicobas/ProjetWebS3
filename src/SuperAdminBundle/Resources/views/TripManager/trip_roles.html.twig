@@ -1,0 +1,37 @@
+{% extends "SuperAdminBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Ajout d'un voyage{% endblock %}
+
+{% block page %}
+    Liste des admins :
+    <br />
+
+    {% if trip.admins|length > 0 %}
+        <table>
+            <tr>
+                <td><b>Prenom</b></td>
+                <td><b>Nom</b></td>
+                <td><b>Mail</b></td>
+                <td><b>Retirer admin</b></td>
+            </tr>
+            {% for admin in trip.admins %}
+                <tr>
+                    <td>{{ admin.prenom }}</td>
+                    <td>{{ admin.nom }}</td>
+                    <td>{{ admin.email }}</td>
+
+                    <td>
+                        <a href="{{ path('superadmin_trip_roles_delete', { 'trip_id': trip.id, 'admin_id': admin.id }) }}">
+                            Supprimer
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Pas d'admins trouvés.</p>
+    {% endif %}
+    <br />
+    {{ form(form) }}
+
+{% endblock %}

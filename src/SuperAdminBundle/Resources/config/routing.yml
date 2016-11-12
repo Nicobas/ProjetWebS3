@@ -1,0 +1,55 @@
+superadmin_homepage:
+    path:   /
+    defaults:  { _controller:SuperAdminBundle:SuperAdmin:index }
+
+superadmin_login:
+    path:   /login
+    defaults:  { _controller:SuperAdminBundle:Security:login }
+
+superadmin_login_check:
+    path:   /login_check
+
+superadmin_logout:
+    path:   /logout
+
+superadmin_users:
+    path:   /users
+    defaults:  { _controller:SuperAdminBundle:UserManager:index }
+
+superadmin_user_lock:
+    path:   /users/lock/{id}
+    defaults:  { _controller:SuperAdminBundle:UserManager:lock }
+    requirements:
+        id:   \d+
+
+superadmin_user_expire:
+    path:   /users/expire/{id}
+    defaults:  { _controller:SuperAdminBundle:UserManager:expire }
+    requirements:
+        id:   \d+
+
+superadmin_trips:
+    path:   /trips
+    defaults:  { _controller:SuperAdminBundle:TripManager:index }
+
+superadmin_trip_add:
+    path:   /trips/add
+    defaults:  { _controller:SuperAdminBundle:TripManager:add }
+
+superadmin_trip_delete:
+    path:   /trips/delete/{id}
+    defaults:  { _controller:SuperAdminBundle:TripManager:delete }
+    requirements:
+        id:   \d+
+
+superadmin_trip_edit:
+    path:   /trips/edit/{id}
+    defaults:  { _controller:SuperAdminBundle:TripManager:edit }
+    requirements:
+        id:   \d+
+
+superadmin_trip_roles:
+    path:   /trips/roles/{id}
+    defaults:  { _controller:SuperAdminBundle:TripManager:roles }
+    requirements:
+        id:   \d+

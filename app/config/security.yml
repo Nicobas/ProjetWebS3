@@ -1,0 +1,49 @@
+security:
+    encoders:
+        UserBundle\Entity\User: sha512
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+
+    providers:
+        superadmin:
+            memory:
+                users:
+                    superadmin:  { password: "%superadmin_password%", roles: [ 'ROLE_SUPERADMIN' ] }
+
+        main:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        superlogin:
+            pattern:   ^/superadmin/login$
+            anonymous: true
+
+        superadmin:
+            pattern:   ^/superadmin
+            anonymous: false
+            provider:  superadmin
+            form_login:
+                login_path:             superadmin_login
+                check_path:             superadmin_login_check
+                default_target_path:    /superadmin
+            logout:
+                path:   superadmin_logout
+                target: /superadmin
+        main:
+            pattern:        ^/
+            anonymous:      true
+            provider:       main
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path:       fos_user_security_logout
+                target:     /
+            remember_me:
+                secret:     %secret%
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/trips, roles: ROLE_USER }
