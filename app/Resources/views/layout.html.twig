@@ -3,6 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Projet Web S3{% endblock %}</title>
+
+    {% stylesheets filter='cssrewrite'
+        '@CoreBundle/Resources/public/css/bootstrap.min.css'
+        '@CoreBundle/Resources/public/css/bootstrap-theme.min.css'
+        '@CoreBundle/Resources/public/css/main.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+
 </head>
 <body>
 {{ include("::header.html.twig") }}
@@ -13,5 +22,18 @@
 {% endblock %}
 
 {{ include("::footer.html.twig") }}
+
+<img src="{{ asset('bundles/core/img/pommes.jpg') }}" alt="pomme" />
+
 </body>
 </html>
+
+{% javascripts
+    '@CoreBundle/Resources/public/js/jquery.min.js'
+    '@CoreBundle/Resources/public/js/bootstrap.min.js'
+    '@CoreBundle/Resources/public/js/main.js'
+%}
+
+<script type="text/javascript" src="{{ asset_url }}"></script>
+
+{% endjavascripts %}

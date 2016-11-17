@@ -42,7 +42,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        superadmin_login: '%superadmin_login%'
+        superadmin_login: 'superadmin'
 
 # Doctrine Configuration
 doctrine:
@@ -76,3 +76,10 @@ fos_user:
     registration:
         form:
             type: UserBundle\Form\RegistrationType
+
+assetic:
+    debug: "%kernel.debug%"
+    use_controller: "%kernel.debug%"
+    bundles: []
+    filters:
+        cssrewrite: ~
