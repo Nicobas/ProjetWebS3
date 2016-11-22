@@ -27,10 +27,15 @@
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     {% if app.user %}
-                        <li class=""><a href="{{ path('superadmin_users') }}">Logout</a></li>
+                        {% if is_granted ('ROLE_SUPERADMIN') == 'true' %}
+                            <li class=""><a href="{{ path('superadmin_logout') }}">Logout</a></li>
+                        {% else %}
+                            <li class=""><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                        {% endif %}
                     {% else %}
                         <li class=""><a href="{{ path('superadmin_login') }}">Se connecter comme administrateur</a></li>
-                        <li class=""><a href="{{ path('fos_user_security_login') }}">Se connecter comme utilisateur</a></li>
+                        <li class=""><a href="{{ path('fos_user_security_login') }}">Se connecter comme utilisateur</a>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
