@@ -4,10 +4,11 @@
 
 
 {% block page %}
+    <a href="{{ path('superadmin_trip_add') }}">
+        Ajouter un voyage
+    </a>
     {% if trips|length > 0 %}
-        <a href="{{ path('superadmin_trip_add') }}">
-            Ajouter un voyage
-        </a>
+
         <table>
             <tr>
                 <td><b>Titre</b></td>
@@ -54,7 +55,9 @@
             {% endfor %}
         </table>
     {% else %}
-        <p>Pas de voyages trouvés.</p>
+        <div class="alert alert-danger">
+            <p>Pas de voyages trouvés.</p>
+        </div>
     {% endif %}
 
 {% endblock %}

@@ -3,11 +3,22 @@
 {% block title %}{{ parent() }} - Index{% endblock %}
 
 {% block page %}
-    <a href="{{ path('superadmin_users') }}">
-        Gestion des utilisateurs
-    </a>
-    <br />
-    <a href="{{ path('superadmin_trips') }}">
-        Gestions des voyages
-    </a>
+    <div class ="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 panel panel-default">
+                <a href="{{ path('superadmin_homepage') }}">
+                        Accueil
+                    <span class="glyphicon glyphicon-pushpin"></span>
+                </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 panel panel-default">
+            <a href="{{ path('superadmin_users') }}">
+                Gestion des utilisateurs
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 panel panel-default">
+            <a href="{{ path('superadmin_trips') }}">
+                Gestions des voyages
+            </a>
+        </div>
+    </div>
 {% endblock %}

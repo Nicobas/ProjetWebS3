@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Projet Web S3{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ asset('bundles/core/img/favicon.png') }}" />
 
     {% stylesheets filter='cssrewrite'
         '@CoreBundle/Resources/public/css/bootstrap.min.css'
         '@CoreBundle/Resources/public/css/bootstrap-theme.min.css'
         '@CoreBundle/Resources/public/css/main.css'
     %}
+
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
 
@@ -22,8 +24,6 @@
 {% endblock %}
 
 {{ include("::footer.html.twig") }}
-
-<img src="{{ asset('bundles/core/img/pommes.jpg') }}" alt="pomme" />
 
 </body>
 </html>

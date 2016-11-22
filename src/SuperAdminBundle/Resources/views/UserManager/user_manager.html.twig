@@ -5,7 +5,7 @@
 
 {% block page %}
     {% if users|length > 0 %}
-        <table>
+        <table class="table table-striped">
             <tr>
                 <td><b>Prenom</b></td>
                 <td><b>Nom</b></td>
@@ -42,7 +42,9 @@
             {% endfor %}
         </table>
     {% else %}
-        <p>Pas d'utilisateur trouvés.</p>
+        <div class="alert alert-danger">
+            <p>Pas d'utilisateur trouvé.</p>
+        </div>
     {% endif %}
 
 {% endblock %}

@@ -1,4 +1,40 @@
-<nav>
-Nav
+{% block page %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                {% if is_granted ('ROLE_SUPERADMIN') == 'true' %}
+                    <a class="navbar-brand" href="{{ path('superadmin_homepage') }}">Projet ESIEA 4A</a>
+                {% else %}
+                    <a class="navbar-brand" href="{{ path('core_homepage') }}">Projet ESIEA 4A</a>
+                {% endif %}
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {% if is_granted ('ROLE_SUPERADMIN') == 'true' %}
+                        <li><a href="{{ path('superadmin_users') }}">Gestion des utilisateurs</a></li>
+                        <li><a href="{{ path('superadmin_trips') }}">Gestion des voyages</a></li>
+                    {% else %}
+                        <li><a href="{{ path('trip_homepage') }}">Gestion des voyages</a></li>
+                    {% endif %}
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    {% if app.user %}
+                        <li class=""><a href="{{ path('superadmin_users') }}">Logout</a></li>
+                    {% else %}
+                        <li class=""><a href="{{ path('superadmin_login') }}">Se connecter comme administrateur</a></li>
+                        <li class=""><a href="{{ path('fos_user_security_login') }}">Se connecter comme utilisateur</a></li>
+                    {% endif %}
+                </ul>
+            </div>
 
-</nav>
+        </div>
+    </nav>
+{% endblock %}

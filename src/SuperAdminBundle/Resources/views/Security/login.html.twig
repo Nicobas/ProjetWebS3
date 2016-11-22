@@ -8,13 +8,28 @@
     {% endif %}
 
     {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
-    <form action="{{ path('superadmin_login_check') }}" method="post">
-        <input type="hidden" id="username" name="_username" value="{{ superadmin_login }}" />
-
-        <label for="password">Mot de passe superadmin :</label>
-        <input type="password" id="password" name="_password" value="{{ last_username }}" />
 
         <input type="submit" value="Connexion" />
-    </form>
+
+<form action="{{ path('superadmin_login_check') }}" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-5 col-md-3">
+                <div class="form-login">
+                    <input type="text" id="userName" name="_username" class="form-control input-sm chat-input" placeholder="username" value="{{ superadmin_login }}"/>
+                    </br>
+                    <input type="password" id="password" name="_password" class="form-control input-sm chat-input" placeholder="password" value="{{ last_username }}" />
+                    </br>
+                    <div class="wrapper">
+            <span class="group-btn">
+                <input type="submit" value="Connexion" class="btn btn-primary btn-md"/>
+            </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
 
 {% endblock %}
