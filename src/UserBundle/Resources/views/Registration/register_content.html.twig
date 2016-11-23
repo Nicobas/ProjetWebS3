@@ -6,8 +6,9 @@
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-group'}}) }}
 
 {{ form_widget(form) }}
+<br/>
     <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        <input type="submit" class="btn btn-primary btn-block" value="{{ 'registration.submit'|trans }}" />
     </div>
 {{ form_end(form) }}
 
