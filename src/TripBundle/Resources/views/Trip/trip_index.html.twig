@@ -7,7 +7,8 @@
     <div>
         <h3>Mes voyages</h3>
         {% if user_trips|length > 0 %}
-            <table>
+            <table class="table">
+                <thead class="thead-inverse">
                 <tr>
                     <td><b>Titre</b></td>
                     <td><b>Statut</b></td>
@@ -47,7 +48,8 @@
     <div>
         <h3>Autres voyages</h3>
         {% if allowed_trips|length > 0 %}
-            <table>
+            <table class="table">
+                <thead class="thead-inverse">
                 <tr>
                     <td><b>Titre</b></td>
                     <td><b>Statut</b></td>

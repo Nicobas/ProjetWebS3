@@ -5,3 +5,7 @@ html{
     width:400px;
     margin:auto;
 }
+
+.table-striped{
+    background-color: red;
+}
