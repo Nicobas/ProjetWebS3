@@ -11,6 +11,11 @@
         '@CoreBundle/Resources/public/css/main.css'
     %}
 
+    {% block stylesheets %}
+        <link href="{{ asset('@CoreBundle/Resources/public/css/main.css')}}" rel="stylesheet"/>
+    {%  endblock %}
+
+
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
 

@@ -43,6 +43,9 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         superadmin_login: 'superadmin'
+twig:
+    form:
+        resources: ['bootstrap_3_layout.html.twig']
 
 # Doctrine Configuration
 doctrine:
@@ -83,3 +86,4 @@ assetic:
     bundles: []
     filters:
         cssrewrite: ~
+

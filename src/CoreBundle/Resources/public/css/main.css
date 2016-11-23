@@ -1,3 +1,7 @@
 html{
     Margin-top: -40px;
 }
+.form-group{
+    width:400px;
+    margin:auto;
+}
