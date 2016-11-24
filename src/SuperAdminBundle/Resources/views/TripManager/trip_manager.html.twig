@@ -1,5 +1,6 @@
 {% extends "SuperAdminBundle::layout.html.twig" %}
 
+
 {% block title %}{{ parent() }} - Gestionnaire de voyages{% endblock %}
 
 
@@ -8,9 +9,10 @@
         Ajouter un voyage
     </a>
     {% if trips|length > 0 %}
-        <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table">
+                <thead class="thead-inverse">
                 <tr>
+                    <th scope="row">1</th>
                     <td><b>Titre</b></td>
                     <td><b>Statut</b></td>
                     <td><b>Ouverture au public</b></td>
@@ -21,40 +23,41 @@
                     <td><b>Gérer les admins</b></td>
                     <td><b>Supprimer</b></td>
                 </tr>
-                {% for trip in trips %}
-                    <tr>
-                        <td>{{ trip.titre }}</td>
-                        <td>{{ trip.statut }}</td>
-
-                        <td>
+                     {% for trip in trips %}
+                <tr>
+                    <th scope="row">2</th>
+                    <td>{{ trip.titre }}</td>
+                    <td>{{ trip.statut }}</td>
+                    <td>
                             {% if trip.ouvert %}
                                 Ouvert
                             {% else %}
                                 Fermé
                             {% endif %}
-                        </td>
-                        <td>{{ trip.dateDebut|date("d M Y à H\\hi") }}</td>
-                        <td>{{ trip.dateFin|date("d M Y à H\\hi") }}</td>
-                        <td>{{ trip.lieux }}</td>
-                        <td>
+                    </td>
+                    <td>{{ trip.dateDebut|date("d M Y à H\\hi") }}</td>
+                    <td>{{ trip.dateFin|date("d M Y à H\\hi") }}</td>
+                    <td>{{ trip.lieux }}</td>
+                    <td>
                             <a href="{{ path('superadmin_trip_edit', { 'id': trip.id }) }}">
                                 Edit
                             </a>
-                        </td>
-                        <td>
+                    </td>
+                    <td>
                             <a href="{{ path('superadmin_trip_roles', { 'id': trip.id }) }}">
                                 Gérer les admins
                             </a>
-                        </td>
-                        <td>
+                    </td>
+                    <td>
                             <a href="{{ path('superadmin_trip_delete', { 'id': trip.id }) }}">
                                 Supprimer
                             </a>
-                        </td>
-                    </tr>
-                {% endfor %}
+                    </td>
+                </tr>
+                    {% endfor %}
+
             </table>
-        </div>
+
     {% else %}
         <div class="alert alert-danger">
             <p>Pas de voyages trouvés.</p>
