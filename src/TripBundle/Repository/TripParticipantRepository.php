@@ -37,4 +37,19 @@ class TripParticipantRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function getTripsParticipantsWithUsersRestrictions($trip)
+    {
+        $qb = $this
+                ->createQueryBuilder('tp')
+                ->where('tp.trip = :trip')
+                ->setParameter('trip', $trip)
+                ->leftJoin('tp.participant', 'u')
+                ->addSelect('u')
+                ->orderBy('u.nom');
+
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
 }

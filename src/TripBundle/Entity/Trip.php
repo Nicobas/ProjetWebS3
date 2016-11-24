@@ -189,6 +189,7 @@ class Trip
     public function addAdmin(\UserBundle\Entity\User $admin)
     {
         $this->admins[] = $admin;
+        $admin->addAdministrableTrip($this);
 
         return $this;
     }

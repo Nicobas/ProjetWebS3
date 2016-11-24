@@ -1,0 +1,38 @@
+{% extends "TripBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Gestionnaire d'utilisateurs{% endblock %}
+
+
+{% block page %}
+    {% if tripParticipants|length > 0 %}
+        <table class="table table-striped">
+            <tr>
+                <td><b>Prenom</b></td>
+                <td><b>Nom</b></td>
+                <td><b>Promo</b></td>
+                <td><b>Mail</b></td>
+
+                <td><b>Retirer du voyage</b></td>
+                <td><b>Laisser un commentaire</b></td>
+                <td><b>Statut</b></td>
+            </tr>
+            {% for tripParticipant in tripParticipants %}
+                <tr>
+                    <td>{{ tripParticipant.participant.prenom }}</td>
+                    <td>{{ tripParticipant.participant.nom }}</td>
+                    <td>{{ tripParticipant.participant.promotion }}</td>
+                    <td>{{ tripParticipant.participant.email }}</td>
+
+                    <td>{{ tripParticipant.participant.email }}</td>
+                    <td>{{ tripParticipant.participant.email }}</td>
+                    <td>{{ tripParticipant.participant.email }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <div class="alert alert-danger">
+            <p>Pas d'utilisateur trouvé.</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

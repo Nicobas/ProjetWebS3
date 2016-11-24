@@ -50,4 +50,36 @@ class AdminController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    public function restrictionsAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $trip = $em->getRepository('TripBundle:Trip')->find($id);
+
+        if (null === $trip) {
+            throw new NotFoundHttpException("Le voyage d'id ".$id." n'existe pas.");
+        }
+
+        $participants = $em->getRepository('TripBundle:TripParticipant')->getTripsParticipantsWithUsersRestrictions($trip);
+
+        return $this->render('TripBundle:Admin:trip_edit.html.twig', array(
+            'tripParticipants' => $participants,
+        ));
+    }
+
+    public function usersAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $trip = $em->getRepository('TripBundle:Trip')->find($id);
+
+        if (null === $trip) {
+            throw new NotFoundHttpException("Le voyage d'id ".$id." n'existe pas.");
+        }
+
+        $participants = $em->getRepository('TripBundle:TripParticipant')->getTripsParticipantsWithUsersRestrictions($trip);
+
+        return $this->render('TripBundle:Admin:user_manager.html.twig', array(
+            'tripParticipants' => $participants,
+        ));
+    }
 }
