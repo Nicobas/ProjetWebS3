@@ -1,9 +1,19 @@
 {% extends "SuperAdminBundle::layout.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block title %}{{ parent() }} - Ajout d'un voyage{% endblock %}
 
 {% block page %}
 
-    {{ form(form) }}
+    <h3>Formulaire de voyage</h3>
+    <br /><br />
+
+    {{ form_start(form, {'attr': {'class': 'form-group form-trips'}}) }}
+
+    {{ form_widget(form) }}
+
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+    {{ form_end(form) }}
 
 {% endblock %}
