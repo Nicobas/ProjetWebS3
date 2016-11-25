@@ -14,3 +14,15 @@ html{
 body {
     margin-bottom: 50px;
 }
+
+.modal-body h2 span {
+    position: absolute;
+    top: 3%;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+    color: #F8F8FF;
+    padding: 5px;
+    text-align: center;
+    font-family: "Comic Sans MS";
+}
