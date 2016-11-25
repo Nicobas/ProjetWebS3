@@ -35,11 +35,12 @@ L'utilisateur superadmin est défini dans le code du projet, sont mot de passe e
 
 Partie II : Utilisateur
 
-Ce type de profil est consacré aux utilisateurs qui peuvent s'inscrire aux voyages aux quel ils sont autorisés (voyage ouvert ou restriction par adresse mail) et les consulter. 
+Ce type de profil est consacré aux utilisateurs qui peuvent s'inscrire aux voyages auxquels ils sont autorisés (voyage ouvert ou restriction par adresse mail) et les consulter. 
 
 Chaque voyage à un panel d'administration permettant 
 (admins définis par le superadmin) aux admins autorisés de :
-- Modifier le voyage.
+- Créer des voyages
+- Modifier/Supprimer des voyages
 - Gérer les restrictions par mail
 - Gérer les utilisateurs : les désinscrire, mettre un commentaire ou modifier le statut ("Payé" par exemple)
 
