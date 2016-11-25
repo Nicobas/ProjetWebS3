@@ -22,5 +22,25 @@ Installation :
 	php app/console assets:install web
 
  - Faire pointer le nom de dommaine/sous dommaine sur le répertoire web du projet
- - Enjoy !
+--------- Comment ça marche ?   -------------
+Administration
+
+Le site est composé d'une partie administration (route /superadmin) permettant :
+
+Partie I : Administration
+- Gestion des utilisateurs
+- Gestion des voyages (ajouter des voyages de leurs affecter des admins)
+
+L'utilisateur superadmin est défini dans le code du projet, sont mot de passe est "admin" 
+
+Partie II : Utilisateur
+
+Ce type de profil est consacré aux utilisateurs qui peuvent s'inscrire aux voyages aux quel ils sont autorisés (voyage ouvert ou restriction par adresse mail) et les consulter. 
+
+Chaque voyage à un panel d'administration permettant 
+(admins définis par le superadmin) aux admins autorisés de :
+- Modifier le voyage.
+- Gérer les restrictions par mail
+- Gérer les utilisateurs : les désinscrire, mettre un commentaire ou modifier le statut ("Payé" par exemple)
+
 	
