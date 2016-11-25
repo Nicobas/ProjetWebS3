@@ -16,9 +16,7 @@ class TripRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('t.restrictions', 'rt')
             ->where('t.ouvert = true')
             ->orWhere('rt.email = :user_mail')
-            ->andWhere('t.statut = :inscription')
-            ->setParameter('user_mail', $user->getEmail())
-            ->setParameter('inscription', 'Inscription');
+            ->setParameter('user_mail', $user->getEmail());
     }
 
     public function getTripWithAdmins($id)
