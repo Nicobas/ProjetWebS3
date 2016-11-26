@@ -3,5 +3,19 @@
 {% block title %}{{ parent() }} - Index{% endblock %}
 
 {% block page %}
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <strong><i class="fa fa-warning"></i>Lien GitHub, documentation : <a href="https://github.com/Nicobas/ProjetWebS3.git">https://github.com/Nicobas/ProjetWebS3.git</a><br />ROLE DE L'APPLICATION</strong> <marquee><p style="font-family: Impact; font-size: 18pt"> Gestion des voyages au sein de l'ESIEA (WEI, Rally Ski, Colloque, ...) </p></marquee>
+            </div>
+        </div>
+    </div>
 
+    <div class = "modal-body">
+        <img src="{{ asset('bundles/core/img/voyages.jpg') }}" class="img-responsive" style="width: 50%; margin-left: auto; margin-right: auto" />
+        <h2>
+            <span>Trip'Esiea<strong> Projet Web 4A</strong></span>
+        </h2>
+    </div>
 {% endblock %}

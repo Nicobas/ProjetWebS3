@@ -1,5 +1,7 @@
 Trip'Esiea - Projet Web 4A
 ===========
+[http://tripesiea.bde-apache.fr](http://tripesiea.bde-apache.fr)
+
 
 --- Mise en production ---
 
@@ -22,8 +24,8 @@ Installation :
 	php app/console assets:install web
 
  - Faire pointer le nom de dommaine/sous dommaine sur le répertoire web du projet
---------- Comment ça marche ?   -------------
-Administration
+ 
+--- Utilisation/Fonctionnement ---
 
 Le site est composé d'une partie administration (route /superadmin) permettant :
 
