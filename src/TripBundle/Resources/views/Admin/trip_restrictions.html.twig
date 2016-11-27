@@ -1,0 +1,33 @@
+{% extends "TripBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Ajout d'un voyage{% endblock %}
+
+{% block page %}
+    Liste des restrictions par mail : (Si le voyage est ouvert, les restrictions ne seront pas appliquées)
+    <br />
+
+    {% if trip.restrictions|length > 0 %}
+        <table class="table">
+            <thead class="thead-inverse">
+            <tr>
+                <td><b>Mail</b></td>
+                <td><b>Supprimer</b></td>
+            </tr>
+            {% for restriction in trip.restrictions %}
+                <tr>
+                    <td>{{ restriction.email }}</td>
+                    <td>
+                        <a href="{{ path('trip_admin_restrictions_delete', { 'trip_id': restriction.trip.id, 'rest_id': restriction.id }) }}">
+                            Supprimer
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Pas de restrictions trouvés.</p>
+    {% endif %}
+    <br />
+    {{ form(form) }}
+
+{% endblock %}

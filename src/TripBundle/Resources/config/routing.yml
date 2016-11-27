@@ -9,13 +9,13 @@ trip_detail:
         id:   \d+
 
 trip_inscription:
-    path:   /inscription/{id}
+    path:   /{id}/inscription
     defaults:  { _controller:TripBundle:Trip:inscription }
     requirements:
         id:   \d+
 
 trip_desinscription:
-    path:   /desinscription/{id}
+    path:   /{id}/desinscription
     defaults:  { _controller:TripBundle:Trip:desinscription }
     requirements:
         id:   \d+
@@ -25,19 +25,40 @@ trip_admin:
     defaults:  { _controller:TripBundle:Admin:index }
 
 trip_admin_edit:
-    path:   /admin/edit/{id}
+    path:   /{id}/admin/edit
     defaults:  { _controller:TripBundle:Admin:edit }
     requirements:
         id:   \d+
 
 trip_admin_users:
-    path:   /admin/users/{id}
+    path:   /{id}/admin/users
     defaults:  { _controller:TripBundle:Admin:users }
     requirements:
         id:   \d+
 
 trip_admin_restrictions:
-    path:   /admin/restrictions/{id}
+    path:   /{id}/admin/restrictions
     defaults:  { _controller:TripBundle:Admin:restrictions }
     requirements:
         id:   \d+
+
+trip_admin_restrictions_delete:
+    path:   /{trip_id}/admin/restrictions/{rest_id}
+    defaults:  { _controller:TripBundle:Admin:restrictionDelete }
+    requirements:
+        trip_id:   \d+
+        rest_id:   \d+
+
+trip_admin_users_desinscription:
+    path:   /{trip_id}/admin/users/{user_id}/desinscription
+    defaults:  { _controller:TripBundle:Admin:userDesinscription }
+    requirements:
+        trip_id:   \d+
+        user_id:   \d+
+
+trip_admin_users_edit:
+    path:   /{trip_id}/admin/users/{user_id}/edit
+    defaults:  { _controller:TripBundle:Admin:userEdit }
+    requirements:
+        trip_id:   \d+
+        user_id:   \d+

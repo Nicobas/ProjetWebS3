@@ -36,9 +36,9 @@ class TripParticipant
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaireAdmin", type="text", nullable=true)
+     * @ORM\Column(name="commentaire", type="text", nullable=true)
      */
-    private $commentaireAdmin;
+    private $commentaire;
 
     /**
      * @ORM\ManyToOne(targetEntity="TripBundle\Entity\Trip", cascade={"persist"}, inversedBy="participants")
@@ -86,27 +86,27 @@ class TripParticipant
     }
 
     /**
-     * Set commentaireAdmin
+     * Set commentaire
      *
-     * @param string $commentaireAdmin
+     * @param string $commentaire
      *
      * @return TripParticipant
      */
-    public function setCommentaireAdmin($commentaireAdmin)
+    public function setCommentaire($commentaire)
     {
-        $this->commentaireAdmin = $commentaireAdmin;
+        $this->commentaire = $commentaire;
 
         return $this;
     }
 
     /**
-     * Get commentaireAdmin
+     * Get commentaire
      *
      * @return string
      */
-    public function getCommentaireAdmin()
+    public function getCommentaire()
     {
-        return $this->commentaireAdmin;
+        return $this->commentaire;
     }
 
     /**

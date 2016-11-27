@@ -202,6 +202,7 @@ class Trip
     public function removeAdmin(\UserBundle\Entity\User $admin)
     {
         $this->admins->removeElement($admin);
+        $admin->removeAdministrableTrip($this);
     }
 
     /**

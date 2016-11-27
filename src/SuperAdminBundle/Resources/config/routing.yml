@@ -56,6 +56,6 @@ superadmin_trip_roles:
 
 superadmin_trip_roles_delete:
     path:   /trips/{trip_id}/deleteRoles/{admin_id}
-    defaults:  { _controller:SuperAdminBundle:TripManager:deleteAdminAction }
+    defaults:  { _controller:SuperAdminBundle:TripManager:deleteAdmin }
     requirements:
         id:   \d+

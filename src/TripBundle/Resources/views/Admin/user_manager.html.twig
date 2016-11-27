@@ -11,10 +11,11 @@
                 <td><b>Nom</b></td>
                 <td><b>Promo</b></td>
                 <td><b>Mail</b></td>
+                <td><b>Statut</b></td>
+                <td><b>Commentaire</b></td>
 
                 <td><b>Retirer du voyage</b></td>
-                <td><b>Laisser un commentaire</b></td>
-                <td><b>Statut</b></td>
+                <td><b>Statut / Commentaire</b></td>
             </tr>
             {% for tripParticipant in tripParticipants %}
                 <tr>
@@ -22,16 +23,25 @@
                     <td>{{ tripParticipant.participant.nom }}</td>
                     <td>{{ tripParticipant.participant.promotion }}</td>
                     <td>{{ tripParticipant.participant.email }}</td>
+                    <td>{{ tripParticipant.statut }}</td>
+                    <td>{{ tripParticipant.commentaire }}</td>
 
-                    <td>{{ tripParticipant.participant.email }}</td>
-                    <td>{{ tripParticipant.participant.email }}</td>
-                    <td>{{ tripParticipant.participant.email }}</td>
+                    <td>
+                        <a href="{{ path('trip_admin_users_desinscription', { 'trip_id': tripParticipant.trip.id, 'user_id': tripParticipant.participant.id }) }}">
+                            Retirer
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('trip_admin_users_edit', { 'trip_id': tripParticipant.trip.id, 'user_id': tripParticipant.participant.id }) }}">
+                            Edit
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
     {% else %}
         <div class="alert alert-danger">
-            <p>Pas d'utilisateur trouvé.</p>
+            <p>Pas de participants trouvé.</p>
         </div>
     {% endif %}
 

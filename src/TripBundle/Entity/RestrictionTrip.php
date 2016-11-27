@@ -110,6 +110,8 @@ class RestrictionTrip
     {
         $this->trip = $trip;
 
+        $trip->addRestriction($this);
+
         return $this;
     }
 

@@ -10,5 +10,16 @@ namespace TripBundle\Repository;
  */
 class RestrictionTripRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getRestrictionsEmailsByTrip($trip)
+    {
+        $qb = $this
+            ->createQueryBuilder('r')
+            ->where('r.trip = :trip')
+            ->setParameter('trip', $trip)
+            ->select('r.email');
 
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
 }
